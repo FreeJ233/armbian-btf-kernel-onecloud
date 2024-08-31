@@ -88,6 +88,9 @@ jobs:
           # Compile kernel.
           ./compile.sh RELEASE=bullseye JUST_KERNEL=yes BUILD_ONLY=kernel BOARD="$BOARD_NAME" BRANCH="$BRANCH" KERNEL_CONFIGURE=no BUILD_MINIMAL=yes
 
+          # Modify verifier.c
+          find / -name "verifier.c"|xargs sed -i '/callbacks are not allowed in non-JITed programs/{n;s/return -EINVAL/return -ENOTSUPP/;}'
+          
       - name: Extract Output
         id: output
         run: |

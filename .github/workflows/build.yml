@@ -88,7 +88,7 @@ jobs:
           CONFIG_TASKS_RCU=y" >> config/kernel/linux-"$BOARD_FAMILY"-"$BRANCH".config
 
           # Compile kernel.
-          ./compile.sh RELEASE=bookworm JUST_KERNEL=yes BUILD_ONLY=kernel BOARD="$BOARD_NAME" BRANCH="$BRANCH" KERNEL_CONFIGURE=no BUILD_MINIMAL=no
+          ./compile.sh RELEASE=bookworm JUST_KERNEL=yes BUILD_ONLY=kernel BOARD="$BOARD_NAME" BRANCH="$BRANCH" KERNEL_CONFIGURE=no BUILD_MINIMAL=yes
           
       - name: Extract Output
         id: output
